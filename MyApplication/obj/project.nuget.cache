@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HPui/hUqT6U=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mm1106187\\Desktop\\Capstone\\Mudblazor\\MyApplication\\MyApplication.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mm1106187\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.3\\microsoft.aspnetcore.app.internal.assets.10.0.3.nupkg.sha512",
+    "C:\\Users\\mm1106187\\.nuget\\packages\\mudblazor\\9.0.0\\mudblazor.9.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
