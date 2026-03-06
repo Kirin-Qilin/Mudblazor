@@ -140,11 +140,16 @@ else
     {
         try
         {
-            string filePath = Path.Combine(
-            Directory.GetCurrentDirectory(),
-            "OGE.csv.csv"
-            
-        );
+string filePath = Path.Combine(
+    Directory.GetCurrentDirectory(),
+    "bin",
+    "Debug",
+    "net10.0",
+    "OGE.csv"
+    
+);
+Console.WriteLine(filePath);
+    
     
             totalInactive = AwesomeClass.GetTotalInactiveUsersWithAccess(filePath);
             inactiveUsersWithSystems = AwesomeClass.GetInactiveUsersWithSystems(filePath);
