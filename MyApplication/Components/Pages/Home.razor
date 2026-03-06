@@ -12,9 +12,6 @@
         Error reading the CSV file. Please check the file path.
     </MudText>
 }
-else
-{
-}
 
 
 <MudText Typo="Typo.h6">
@@ -134,28 +131,23 @@ else
     private Dictionary<string, int>? inactivePerDepartment;
     private bool fileError = false;
 
-    
+            string filePath = "OGE.csv";
+       
 
     protected override async Task OnInitializedAsync()
     {
+
+    
         try
         {
-string filePath = Path.Combine(
-    Directory.GetCurrentDirectory(),
-
-    "OGE.csv"
-    
-);
-Console.WriteLine(filePath);
-    
-    
-            totalInactive = AwesomeClass.GetTotalInactiveUsersWithAccess(filePath);
+              totalInactive = AwesomeClass.GetTotalInactiveUsersWithAccess(filePath);
             inactiveUsersWithSystems = AwesomeClass.GetInactiveUsersWithSystems(filePath);
             inactivePerDepartment = AwesomeClass.GetInactiveUsersPerDepartment(filePath);
         }
         catch
         {
             fileError = true;
+
         }
 
         await Task.CompletedTask;
