@@ -2,50 +2,27 @@
 class AwesomeClass
 {
     private static List<UserRecord> why = new List<UserRecord>();
-
-public static void Load(string filePath)
-{
-    if (why == null)
-        why = new List<UserRecord>();
-
-    if (why.Count > 0)
-        return;
-
-    using var reader = new StreamReader(filePath);
-
-    reader.ReadLine();
-
-    string? line;
-
-    while ((line = reader.ReadLine()) != null)
+    public static List<UserRecord> Load(String filePath)
     {
-        if (string.IsNullOrWhiteSpace(line))
-            continue;
 
-        string[] fields = line.Split(',');
+        //string totallynotfilePath = "OGE.csv";
+        using StreamReader sr = new StreamReader(filePath);
+        {
+            sr.ReadLine();
+        
+            while (!sr.EndOfStream)
+            {
+                string line = sr.ReadLine();
+                string[] hehehehehe = line.Split(',');
+                UserRecord heherecordhehehe = new UserRecord(hehehehehe[0], hehehehehe[1], hehehehehe[2], hehehehehe[3], hehehehehe[4] == "TRUE", hehehehehe[5], hehehehehe[6] == "TRUE", hehehehehe[7], hehehehehe[8], hehehehehe[9], hehehehehe[10], hehehehehe[11], hehehehehe[12]);
+                why.Add(heherecordhehehe);
+            }
 
-        if (fields.Length < 13)
-            continue; 
+        }
+        return why;
 
-        UserRecord record = new UserRecord(
-            fields[0],
-            fields[1],
-            fields[2],
-            fields[3],
-            fields[4].Trim().ToUpper() == "TRUE",
-            fields[5],
-            fields[6].Trim().ToUpper() == "TRUE",
-            fields[7],
-            fields[8],
-            fields[9],
-            fields[10],
-            fields[11],
-            fields[12]
-        );
-
-        why.Add(record);
     }
-}
+
    public static int GetTotalInactiveUsersWithAccess(string filePath)
 {
     Load(filePath);

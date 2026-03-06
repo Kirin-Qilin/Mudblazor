@@ -5,13 +5,13 @@
 
 
 
-
+@* 
 @if (fileError || inactiveUsersWithSystems == null || inactivePerDepartment == null)
 {
     <MudText Color="Color.Error">
         Error reading the CSV file. Please check the file path.
     </MudText>
-}
+} *@
 
 
 <MudText Typo="Typo.h6">
@@ -131,7 +131,7 @@ else
     private Dictionary<string, int>? inactivePerDepartment;
     private bool fileError = false;
 
-            string filePath = "OGE.csv";
+
        
 
     protected override async Task OnInitializedAsync()
@@ -140,9 +140,10 @@ else
     
         try
         {
-              totalInactive = AwesomeClass.GetTotalInactiveUsersWithAccess(filePath);
-            inactiveUsersWithSystems = AwesomeClass.GetInactiveUsersWithSystems(filePath);
-            inactivePerDepartment = AwesomeClass.GetInactiveUsersPerDepartment(filePath);
+            string filePath = "OGE.csv";
+            totalInactive = AwesomeClass.GetTotalInactiveUsersWithAccess(filePath);
+            @* inactiveUsersWithSystems = AwesomeClass.GetInactiveUsersWithSystems(filePath);
+            inactivePerDepartment = AwesomeClass.GetInactiveUsersPerDepartment(filePath); *@
         }
         catch
         {
@@ -150,7 +151,7 @@ else
 
         }
 
-        await Task.CompletedTask;
+        
     }
     
 }
